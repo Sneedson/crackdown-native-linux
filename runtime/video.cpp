@@ -97,8 +97,8 @@ std::atomic<int> g_menu_wheel{ 0 };
 // the keyboard; mouse buttons only while the mouse is captured.
 std::atomic<uint8_t> g_keys[SDL_SCANCODE_COUNT];
 std::atomic<uint32_t> g_action_mouse{ 0 };  // SDL_BUTTON_*MASK
-std::atomic<bool> g_capture_request{ false };  // F12: log the next frame's draws and write it out
-std::atomic<bool> g_recording{ false };        // F11: presented frames go to build/rec-<n>.mkv until F11 again (mkv: still readable if the game is closed mid-recording)
+std::atomic<bool> g_capture_request{ false };  // F12 (development keys): log the next frame's draws and write it out
+std::atomic<bool> g_recording{ false };        // F11 (development keys): presented frames go to build/rec-<n>.mkv until F11 again (mkv: still readable if the game is closed mid-recording)
 std::atomic<bool> g_revealed{ true };
 // The start-up cover (Skip Intro): from the first frame until the game's menus come up, the window shows the
 // game's own loading movie (the spinning Agency logo, XUIFrontEnd/Loading.bik, looped) with the game's
@@ -287,8 +287,13 @@ void mouse_event( SDL_Window *window, SDL_Renderer *renderer, const SDL_Event &e
         break;
     case SDL_EVENT_KEY_DOWN:
         if ( e.key.scancode == SDL_SCANCODE_LALT && g_mouse_captured ) { SDL_SetWindowRelativeMouseMode( window, false ); g_mouse_captured = false; g_mouse_freed = true; }
-        if ( e.key.scancode == SDL_SCANCODE_F12 && !e.key.repeat ) { g_capture_request = true; rt_log( "video: F12 capture requested\n" ); }
-        if ( e.key.scancode == SDL_SCANCODE_F11 && !e.key.repeat ) { g_recording = !g_recording; rt_log( "video: F11 recording %s\n", g_recording ? "on" : "off" ); }
+        // Development keys (CRACKDOWN_DEV_KEYS=1): F12 captures a frame (its draws logged, build/frame-N.ppm),
+        // F11 starts / stops a video (build/rec-*.mkv). Not for players: without it both are ordinary keys.
+        if ( static const bool dev = getenv( "CRACKDOWN_DEV_KEYS" ) != nullptr; dev && !e.key.repeat )
+        {
+            if ( e.key.scancode == SDL_SCANCODE_F12 ) { g_capture_request = true; rt_log( "video: F12 capture requested\n" ); }
+            if ( e.key.scancode == SDL_SCANCODE_F11 ) { g_recording = !g_recording; rt_log( "video: F11 recording %s\n", g_recording ? "on" : "off" ); }
+        }
         break;
     case SDL_EVENT_WINDOW_FOCUS_LOST:
         if ( g_mouse_captured ) { SDL_SetWindowRelativeMouseMode( window, false ); g_mouse_captured = false; }

@@ -7,7 +7,7 @@
 # in cars: radio track), Space jump /
 # handbrake / respawn, C or Ctrl crouch, F melee / pick up / drop, E enter / exit vehicle, R reload,
 # G grenade, Q next equipment, Z zoom, H horn / siren, N mute radio, - / = radio volume, Esc pause,
-# Tab or M map. F12 captures a frame (build/frame-N.ppm), F11 starts / stops a video (build/rec-N.mkv).
+# Tab or M map.
 # Menus: mouse pointer (click, wheel, right click back), arrows, Enter / Space select, Esc back.
 # Enter, Space, Esc or a click skips each start-up logo movie and screen.
 # The log lists shaders still compiled while playing and renderer timing every 150 frames.

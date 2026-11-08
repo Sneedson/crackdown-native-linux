@@ -212,7 +212,9 @@ std::string key_cap( int input )
 bool bindable( int input )
 {
     if ( !input ) return true;
-    if ( input == SDL_SCANCODE_ESCAPE || input == SDL_SCANCODE_F11 || input == SDL_SCANCODE_F12 ) return false;  // the way out, recording, capture
+    if ( input == SDL_SCANCODE_ESCAPE ) return false;  // the way out
+    static const bool dev = getenv( "CRACKDOWN_DEV_KEYS" ) != nullptr;  // (F11 / F12 then record and capture: video.cpp)
+    if ( dev && ( input == SDL_SCANCODE_F11 || input == SDL_SCANCODE_F12 ) ) return false;
     return input < SDL_SCANCODE_COUNT || ( input >= MOUSE_L && input <= MOUSE_X2 );
 }
 } // namespace keybinds

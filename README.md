@@ -77,13 +77,6 @@ devtools/setup.sh build
 Your data (title update, content, profiles, saves) lives in `~/.local/share/crackdown-recomp`, settings
 in `~/.config/crackdown-recomp`.
 
-## Controls
-
-Keyboard and mouse: WASD move (in cars W throttle, S brake/reverse, A/D steer), mouse look, left button
-fire, right button lock on, Space jump / handbrake, C or Ctrl crouch, F melee / pick up, E enter/exit
-vehicle, R reload, G grenade, Q next equipment, Z zoom, H horn, Tab or M map, Esc pause. All of it can be
-rebound in Options → Keyboard Controls. F12 saves a screenshot, F11 records a video.
-
 ## How it works
 
 The recompiler (`recompiler/`, [XenonRecomp](https://github.com/hedge-dev/XenonRecomp)) translates the game's PowerPC code (the

@@ -1914,3 +1914,6 @@ PPC_FUNC( sub_8269B9B0 )
     static int dumps;
     if ( !found && input_script_clock() >= dump_after && dumps++ < 2 ) xui_all_roots();
 }
+
+// cursor.cpp: the pointer is on a control (its glow brightens there).
+bool xui_pointer_on_control() { return g_pointer_el != 0; }

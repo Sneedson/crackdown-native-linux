@@ -15,6 +15,7 @@ game's code from those files on your machine.
 - Upscaling: AMD FSR 3 (any GPU), NVIDIA DLSS / DLAA (RTX), FSR 1
 - Draw Distance: people and traffic kept alive farther away, world detail out to 4x the distance
 - Keyboard and mouse throughout (rebindable), with mouse-driven menus; controllers work as on the console
+- An Agency-emblem mouse pointer in the menus, made at start-up from your own game files
 - Profiles: your stats, saves and achievements kept under a name you choose
 - Title update 6 and the downloadable content (Free-For-All Pack, Four-Play Pack)
 - All of it in the game's own options menu (Options → Display Settings → Recomp Options)

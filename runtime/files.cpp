@@ -555,3 +555,6 @@ std::string disc_file_path( const char *rel )
     }
     return disc_root() + "/" + rel;
 }
+
+// The disc's folder, for the rest of the runtime (cursor.cpp).
+std::string files_disc_root() { return disc_root(); }

@@ -39,6 +39,9 @@ extern "C"
 bool keyboard_scripted_key( int scancode );  // keyboard.cpp: CRACKDOWN_KEY_SCRIPT
 uint64_t audio_sample_count();  // audio.cpp
 
+void cursor_init( int display_h );  // cursor.cpp: the Agency emblem as the pointer
+void cursor_update();
+
 namespace
 {
 
@@ -439,6 +442,7 @@ void window_thread()
     SDL_Renderer *renderer = window ? SDL_CreateRenderer( window, nullptr ) : nullptr;
     if ( !renderer ) { rt_log( "video: no window: %s\n", SDL_GetError() ); return; }
     SDL_SetRenderLogicalPresentation( renderer, 1280, 720, SDL_LOGICAL_PRESENTATION_LETTERBOX );
+    cursor_init( g_display_h ? (int)g_display_h : 1080 );
     g_window_up = true;
     uint32_t applied = 0;  // the settings version the window has (fullscreen, vsync)
     SDL_Texture *texture = nullptr;
@@ -450,6 +454,7 @@ void window_thread()
     auto fps_time = std::chrono::steady_clock::now();
     while ( !g_quit )
     {
+        cursor_update();
         SDL_Event e;
         while ( SDL_PollEvent( &e ) )
         {

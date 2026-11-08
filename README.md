@@ -20,6 +20,10 @@ game's code from those files on your machine.
 - Title update 6 and the downloadable content (Free-For-All Pack, Four-Play Pack)
 - All of it in the game's own options menu (Options → Display Settings → Recomp Options)
 
+## To be added
+
+- **Windows support**: the same port and launcher, built and run natively on Windows
+
 ## What you need
 
 **Your game files**

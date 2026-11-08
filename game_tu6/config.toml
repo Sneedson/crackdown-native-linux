@@ -1,0 +1,181 @@
+# Crackdown with title update 6 (titleId 0x4D5307DC): the disc's default.xex patched with the update's
+# Default.xexp (XenonUtils' XexPatcher), image 0x16C0000 bytes, entry 0x827CF278.
+# Save / restore helpers from XenonAnalyse; setjmp / longjmp found by the original's code (same
+# distances from the helpers as on the disc version: the C runtime didn't change).
+[main]
+file_path = "./xex/default.xex"
+out_directory_path = "./ppc"
+switch_table_file_path = "./switch.toml"
+restgprlr_14_address = 0x82B47550
+savegprlr_14_address = 0x82B47500
+restfpr_14_address = 0x82B47B7C
+savefpr_14_address = 0x82B47B30
+restvmx_14_address = 0x82B4C498
+savevmx_14_address = 0x82B4C200
+restvmx_64_address = 0x82B4C52C
+savevmx_64_address = 0x82B4C294
+setjmp_address  = 0x82B4B950
+longjmp_address = 0x82B4B2C0
+
+# Function boundaries (switch statements), from the recompiler's own ERROR comments.
+functions = [
+    { address = 0x82498180, size = 0x328 },   # scan_jumptables.py: table at 0x82498198 (sized to the next function)
+    { address = 0x824CEC08, size = 0x80 },   # scan_jumptables.py: table at 0x824CEC20
+    { address = 0x826B1CF8, size = 0x50 },   # scan_jumptables.py: table at 0x826B1D10
+    { address = 0x82152B30, size = 0x58 },
+    { address = 0x8219F4E8, size = 0x90 },
+    { address = 0x821A45A0, size = 0x164 },
+    { address = 0x82216838, size = 0x50 },
+    { address = 0x82225D50, size = 0xE4 },
+    { address = 0x82225EB0, size = 0x104 },
+    { address = 0x82225FB8, size = 0x78 },
+    { address = 0x822308E0, size = 0x13C },
+    { address = 0x82230A20, size = 0x158 },
+    { address = 0x82230B80, size = 0xF8 },
+    { address = 0x8224F9E0, size = 0x5C },
+    { address = 0x82253940, size = 0x68 },
+    { address = 0x822A4D88, size = 0x64 },
+    { address = 0x822BBB80, size = 0x64 },
+    { address = 0x822C0C70, size = 0xC4 },
+    { address = 0x82322D98, size = 0x16C },
+    { address = 0x82323DA0, size = 0xD0 },
+    { address = 0x82334300, size = 0x124 },
+    { address = 0x82363EA8, size = 0x70 },
+    { address = 0x823BF818, size = 0x154 },
+    { address = 0x823BF9D8, size = 0x118 },
+    { address = 0x823BFAA0, size = 0x50 },
+    { address = 0x823BFB10, size = 0x5C },
+    { address = 0x823BFB70, size = 0xF4 },
+    { address = 0x823C0730, size = 0x490 },
+    { address = 0x823C1260, size = 0x80 },
+    { address = 0x823C12E0, size = 0x128 },
+    { address = 0x823D4280, size = 0xB0 },
+    { address = 0x823D4370, size = 0xC0 },
+    { address = 0x823D6E70, size = 0xD4 },
+    { address = 0x82406508, size = 0xC4 },
+    { address = 0x824065D0, size = 0xA4 },
+    { address = 0x82412988, size = 0x5C },
+    { address = 0x82412F48, size = 0x90 },
+    { address = 0x82431598, size = 0x118 },
+    { address = 0x82433AE0, size = 0x118 },
+    { address = 0x824359D0, size = 0x4C },
+    { address = 0x824426A8, size = 0xA8 },
+    { address = 0x82446850, size = 0x540 },
+    { address = 0x82448A80, size = 0x2A8 },
+    { address = 0x82468748, size = 0x2BC },
+    { address = 0x8246D348, size = 0xD8 },
+    { address = 0x8246D420, size = 0xCC },
+    { address = 0x82495088, size = 0x110 },
+    { address = 0x82498008, size = 0x178 },
+    { address = 0x824B3018, size = 0xA0 },
+    { address = 0x824B5248, size = 0xA8 },
+    { address = 0x824FE060, size = 0x35C },
+    { address = 0x824FE3C0, size = 0x12C },
+    { address = 0x824FE41C, size = 0xD0 },
+    { address = 0x824FE440, size = 0xAC },
+    { address = 0x824FE4A0, size = 0x4C },
+    { address = 0x824FFA18, size = 0x5DC },
+    { address = 0x82500510, size = 0x170 },
+    { address = 0x82500680, size = 0x388 },
+    { address = 0x82500714, size = 0x2F4 },
+    { address = 0x82542858, size = 0x2D8 },
+    { address = 0x825428F8, size = 0xC8 },
+    { address = 0x82542974, size = 0x4C },
+    { address = 0x825429C8, size = 0x168 },
+    { address = 0x82542A68, size = 0xC8 },
+    { address = 0x82542AE4, size = 0x4C },
+    { address = 0x82553838, size = 0x330 },
+    { address = 0x825B01F0, size = 0xFC },
+    { address = 0x825B4CE0, size = 0xA0 },
+    { address = 0x825D0B20, size = 0x13C },
+    { address = 0x825F1E88, size = 0x43C },
+    { address = 0x82603618, size = 0x90 },
+    { address = 0x8262EAB8, size = 0x1D8 },
+    { address = 0x82692350, size = 0x1A0 },
+    { address = 0x826B28F0, size = 0x318 },
+    { address = 0x826B3028, size = 0x31C },
+    { address = 0x826BE480, size = 0x54 },
+    { address = 0x826C85E0, size = 0x2C8 },
+    { address = 0x826D1228, size = 0x104 },
+    { address = 0x826D8008, size = 0xB0 },
+    { address = 0x826D80B8, size = 0xAC },
+    { address = 0x826D9688, size = 0x50 },
+    { address = 0x826D9FF8, size = 0x68 },
+    { address = 0x827361F0, size = 0xEC },
+    { address = 0x8273F488, size = 0xA4 },
+    { address = 0x82760C40, size = 0x144 },
+    { address = 0x827A0240, size = 0x8A0 },
+    { address = 0x8281C4E8, size = 0x114 },
+    { address = 0x8286A3D0, size = 0x100 },
+    { address = 0x828CBE10, size = 0x78 },
+    { address = 0x8294DFA8, size = 0x78 },
+    { address = 0x8299DED8, size = 0x68 },
+    { address = 0x8299DF40, size = 0x64 },
+    { address = 0x8299DFA8, size = 0x5C },
+    { address = 0x8299E008, size = 0x198 },
+    { address = 0x8299E1A0, size = 0x16C },
+    { address = 0x829B99C8, size = 0x88 },
+    { address = 0x829B9A70, size = 0x80 },
+    { address = 0x829C1780, size = 0x134 },
+    { address = 0x829CC908, size = 0x80 },
+    { address = 0x829CD538, size = 0x88 },
+    { address = 0x829E8388, size = 0x1A8 },
+    { address = 0x82A16450, size = 0xB8 },
+    { address = 0x82A86688, size = 0x84 },
+    { address = 0x82B63338, size = 0xA4 },
+    { address = 0x82B633E0, size = 0x468 },
+    { address = 0x82B67EA8, size = 0xBC },
+    { address = 0x82B6D348, size = 0xF4 },
+    { address = 0x82B6E798, size = 0x7C },
+    { address = 0x82B79D60, size = 0x74 },
+    { address = 0x82409FF8, size = 0xC8 },   # by hand: switch on r3 at 0x8240A00C, its table (0x8240A010) and cases up to 0x8240A0C0
+]
+
+invalid_instructions = [
+]
+
+# Instructions that do MMIO reads/writes (GPU block 0x7FC8, XMA block 0x7FEA), from the kit's tools/mmio_scan.py.
+mmio_instructions = [
+    0x8274423C,   # stw r30,1812(r11)        +0x0714  in sub_827440F0
+    0x82744B54,   # lwz r11,25924(r11)       +0x6544  in sub_82744AB8
+    0x827456F4,   # stw r11,24848(r10)       +0x6110  in sub_82745668
+    0x827458C4,   # stw r27,24848(r11)       +0x6110  in sub_82745768
+    0x82752978,   # stw r10,12820(r11)       +0x3214  in sub_82752970
+    0x82752984,   # stw r10,13320(r11)       +0x3408  in sub_82752970
+    0x82ADA714,   # lwbrx r11,0,r11          +0x1800  in sub_82ADA708
+    0x82ADB244,   # lwbrx r11,0,r11          +0x1800  in sub_82ADB208
+    0x82ADB24C,   # lwbrx r10,0,r10          +0x1804  in sub_82ADB208
+    0x82ADB254,   # lwbrx r9,0,r9            +0x1808  in sub_82ADB208
+    0x82ADB25C,   # lwbrx r8,0,r8            +0x180C  in sub_82ADB208
+    0x82ADB278,   # lwbrx r7,0,r7            +0x1810  in sub_82ADB208
+    0x82ADB294,   # lwbrx r6,0,r6            +0x1814  in sub_82ADB208
+    0x82ADB29C,   # lwbrx r5,0,r5            +0x1818  in sub_82ADB208
+    0x82ADB2AC,   # lwbrx r4,0,r4            +0x181C  in sub_82ADB208
+    0x82ADB2B8,   # lwbrx r11,0,r11          +0x1820  in sub_82ADB208
+    0x82ADB2C4,   # lwbrx r10,0,r10          +0x1840  in sub_82ADB208
+    0x82ADB2CC,   # lwbrx r9,0,r9            +0x1844  in sub_82ADB208
+    0x82ADB2D4,   # lwbrx r8,0,r8            +0x1848  in sub_82ADB208
+    0x82ADB2F8,   # lwbrx r7,0,r7            +0x184C  in sub_82ADB208
+    0x82ADB314,   # lwbrx r6,0,r6            +0x1850  in sub_82ADB208
+    0x82ADB31C,   # lwbrx r5,0,r5            +0x1854  in sub_82ADB208
+    0x82ADB32C,   # lwbrx r7,0,r4            +0x1858  in sub_82ADB208
+    0x82ADB334,   # lwbrx r11,0,r11          +0x185C  in sub_82ADB208
+    0x82ADB33C,   # lwbrx r10,0,r10          +0x1860  in sub_82ADB208
+    0x82ADB340,   # lwbrx r9,0,r9            +0x1864  in sub_82ADB208
+    0x82ADB344,   # lwbrx r8,0,r8            +0x1880  in sub_82ADB208
+    0x82ADB378,   # lwbrx r11,0,r11          +0x1884  in sub_82ADB208
+    0x82ADB38C,   # lwbrx r10,0,r10          +0x1888  in sub_82ADB208
+    0x82ADB394,   # lwbrx r9,0,r9            +0x188C  in sub_82ADB208
+    0x82ADB3A4,   # lwbrx r8,0,r8            +0x1890  in sub_82ADB208
+    0x82ADB3BC,   # lwbrx r10,0,r7           +0x1894  in sub_82ADB208
+    0x82ADB3C8,   # lwbrx r9,0,r6            +0x1898  in sub_82ADB208
+    0x82ADB3D0,   # lwbrx r8,0,r5            +0x189C  in sub_82ADB208
+    0x82ADB3D4,   # lwbrx r7,0,r4            +0x18A0  in sub_82ADB208
+    0x82ADB3D8,   # lwbrx r11,0,r11          +0x18A4  in sub_82ADB208
+    0x82ADB490,   # stwbrx r11,0,r10         +idx     in sub_82ADB3F8
+    0x82ADB518,   # stwbrx r5,0,r11          +idx     in sub_82ADB4C8
+    0x82ADB5C0,   # stwx r30,0,r10           +0x1804  in sub_82ADB548
+    0x82ADB5CC,   # stwx r10,0,r11           +0x1804  in sub_82ADB548
+    0x82ADB63C,   # lwbrx r11,0,r11          +0x1818  in sub_82ADB610
+    0x82ADB848,   # stwbrx r11,0,r7          +idx     in sub_82ADB750
+]

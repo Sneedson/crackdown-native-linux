@@ -1,0 +1,8 @@
+generated/
+game/
+build/
+tools/
+game_tu6/*
+!game_tu6/config.toml
+!game_tu6/switch.toml
+recompiler/build-linux/
